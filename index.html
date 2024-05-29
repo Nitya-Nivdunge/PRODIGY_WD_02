@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" onclick="stopwatch_call()" class="toggle-btn">STOPWATCH  <i class="fa-solid fa-stopwatch"></i></button>
+                <button type="button" onclick="timer_call()" class="toggle-btn">TIMER  <i class="fa-regular fa-hourglass-half"></i></button>
+            </div>
+
+            <!---Stopwatch-->
+            <div id="stopwatch_side" class="group">
+                <div class="time">                
+                    <div id="hours">00</div>
+                    <div> : </div>
+                    <div id="minutes"> 00 </div>
+                    <div> : </div>
+                    <div id="seconds"> 00</div>
+                    <div> : </div>
+                    <div id="milliseconds">00</div>
+                </div>
+
+                <div class="lap-div">
+                    <div class="lap_para">LAPS</div>
+                    <ul class="laps">
+                    </ul>
+                </div>
+                
+
+                <div class="button-wrapper">
+                    <button title="RESET" class="button reset " onclick="reset_stopwatch()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                    <button title="PAUSE" class="button pause" onclick="pause_stopwatch()"><i class="fa-solid fa-pause"></i></button>
+                    <button title="START" class="button start" onclick="start_stopwatch()"><i class="fa-solid fa-play"></i></button>
+                    <button title="LAP" class="button lap" onclick="lap_stopwatch()" ><i class="fa-solid fa-flag"></i></button>
+                    <button title="CLEAR LAPS" class="button clear" onclick="clearLap_stopwatch()"><i class="fa-solid fa-eraser"></i></button>
+                </div>
+            </div>
+
+
+
+
+
+            <!---Timer-->
+            <div id="timer_side" class="group">
+                <div class="inp-group">
+                    <div class="inp-class"><h4>SET DATE</h4><input type="date" id="date" class="user"></div>
+                    <div class="inp-class"><h4>SET TIME</h4><input type="time" id="time" class="user"></div>
+                </div>
+
+                <h3 id="time-msg">Timer set for :-  0 day :: 0 hr :: 0 min :: 0 sec</h3>
+
+                <div class="output">
+                    <h3 class="time-msg">Timer ends in : </h3>
+                    <div class="time-card">                
+                        <h2><p id="day">00</p><br>DAY</h2>
+                        <h2><p id="hrs">00</p><br>HRS</h2>
+                        <h2><p id="min">00</p><br>MIN</h2>
+                        <h2><p id="sec">00</p><br>SEC</h2>
+                    </div>
+                </div>
+
+                <div class="button-wrapper">
+                    <button title="RESET" class="button reset " onclick="reset_timer()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                    <button title="START" class="button start" id="startButton" onclick="start_timer(dateInput.value, timeInput.value)"><i class="fa-solid fa-play"></i></button>
+                </div>
+
+                <audio id="alarm" loop>
+                    <source src="timer_end.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
